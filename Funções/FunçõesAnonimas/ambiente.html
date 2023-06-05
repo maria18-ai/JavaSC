@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* EXEMPLO DE FUNÇÃO ANÔNIMA
+        var anonima = function() {alert('Executou')};
+        anonima();*/
+
+        /* FUNÇÃO ANÔNIMA COM PARÂMETRO
+        var anonima = function(n) { alert(n)}
+        anonima(2) */
+
+        /*const somaAnonima = function (numero1) {
+            return (numero2) => (numero1 + numero2)
+        } 
+        const minhaClosured = somaAnonima(2)
+        alert(minhaClosured(3))*/
+
+        let soma = function (...num) {
+            let res = 0 
+            for (n of num) {
+                res += n
+            }
+            return res
+        }
+
+        console.log(soma(1,2,3))
+            console.log(soma(1,3))
+            console.log(soma(1))
+            console.log(soma)
+    </script>
+</body>
+</html>

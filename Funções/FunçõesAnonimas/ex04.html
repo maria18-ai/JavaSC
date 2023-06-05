@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Vamos calcular sua idade.</h1>
+    <p>Pr favor informe os dados a seguir:</p>
+
+    Ano de Nascimento: <input type="number" name="numbernasc" id="numbernasc">
+    <br><input type="button" value="Calcular" onclick="f()">
+
+    <div id="res"> Aqui vai aparecer a resposta! </div>
+</body>
+    <script>
+        let f = function() {
+            let year = document.getElementById('numbernasc')
+            let res = document.getElementById('res')
+            let now = new Date()
+            let currentyear = now.getFullYear()
+
+            if (year.value.length !== 4) {
+                alert('[ERRO] Por Favor, digite um valor valido.')
+            } else if ( year.value > currentyear) {
+                alert('[ERRO] Por Favor, digite um valor valido.')
+            } else {
+                let result = currentyear - year.value 
+                res.innerHTML = `A idade é de ${result} anos.`
+            }
+            }
+        
+    </script>
+</html>
