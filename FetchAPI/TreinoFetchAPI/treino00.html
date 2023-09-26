@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="deleteNewsDatas()">Deletar os Dados</button>
+    <script>
+        const api = 'https://jsonplaceholder.typicode.com/todos/';
+        const newsDatas = {
+            name: "Mina Myoui",
+            profissao: "Cantora, dançarina",
+            idade: 25,
+            email: "mina.myoui@example.com"
+        }
+
+        fetch(api, {
+            method: "POST",
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(newsDatas)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log("ERRO a adicionar os dados", err))
+
+        async function deleteNewsDatas() {
+            fetch(api, {
+                method: "DELETE"
+            })
+            .then(res => console.log("TODOS deletados com sucesso."))
+            .catch(err => console.error("ERRO a deletar os dados."))
+        }
+  </script>
+</body>
+</html>

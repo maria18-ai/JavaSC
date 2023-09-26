@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetch API</h1>
+    <ul id="fill-list"></ul>
+
+    <script>
+        //pegando um dado expecifico 
+        const URL = "https://swapi.dev/api/people/5"; // guardando a api em uma variavel
+
+        fetch(URL) //utilizando a função fetch para aplicar a api guardada na variavel "URL"
+        .then(res => { //utilizando o ".then" com o paramentro "res" e transformando este parametro em um objeto json
+            res.json()
+            .then(data => { //usando o .then para pegar os dados da api 
+
+                // criando elementos para a lista 
+                const ul = document.querySelector("#fill-list");
+                const li = document.createElement('li');
+                const h3 = document.createElement('h3');
+                h3.innerHTML = `${data.name}`;
+                ul.appendChild(li);
+                li.appendChild(h3);
+            })
+        })
+        // metodo cath para tratar um possivel error 
+        .catch( err => {
+            console.error('Erro a aquisição do dado.', err);
+        })
+
+        // pegando todas as pessoas cadastradas na api 
+
+        const URLAll = "https://swapi.dev/api/people/"
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Axios</title>
+    <script src="script01.js" defer></script>
+</head>
+<body>
+    <h2>Criando nova tarefa</h2>
+
+    <form id="taskForm">
+        <label for="taskTitle">Título da tarefa:</label>
+        <input type="text" required id="taskTitle">
+        <button onclick="createTask()" type="button">Criar tarefa</button>
+    </form>
+
+    <div id="result">
+
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>

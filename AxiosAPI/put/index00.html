@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de Axios com PUT</title>
+</head>
+<body>
+    <h2>Treino da biblioteca Axios com o metodo PUT</h2>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        const newDataForUpdate = {
+            title: "Atualizando um dado",
+            body: "Dado de atualização",
+            id: 1
+        }
+
+        axios
+            .put('https://jsonplaceholder.typicode.com/posts/1', newDataForUpdate)
+            .then(response => {
+               const res = response.data
+
+               console.log("Dados atualizados com sucesso!", response.data)
+            })
+            .catch(err => {
+                console.error("Os dados nao foram atualizados", err)
+            })
+    </script>
+</body>
+</html>

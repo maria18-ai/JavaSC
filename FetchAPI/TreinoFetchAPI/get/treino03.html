@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste de fetch com api</title>
+</head>
+<body>
+    <header>
+        <h2>Lista</h2>
+    </header>
+
+    <main>
+       <ul id="list"></ul>
+
+      <input type="button" 
+      onclick="showData()" 
+      value="Clique aqui!" 
+      title="Botao para mostrar os dados">
+
+       <div id="containerList">
+       </div>
+    </main>
+
+    <script>
+
+        function showData() {
+            fetch('https://jsonplaceholder.typicode.com/todos/')
+            .then(res => res.json())
+            .then(data => {
+
+                const list = document.getElementById("containerList")
+
+                data.map((item) =>{
+                const li = document.createElement('li')
+
+                li.setAttribute('id', item.id)
+                li.innerHTML = item.title 
+                list.appendChild(li)
+            })
+            })
+        }
+
+    </script>
+</body>
+</html>

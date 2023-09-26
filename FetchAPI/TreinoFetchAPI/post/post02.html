@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Metodo POST com fetch</h1>
+    <ul id="fill-list"></ul>
+
+    <script>
+
+        const API = "https://jsonplaceholder.typicode.com/posts";
+
+        const newPost = {
+            name:"Dudinha",
+            age:17,
+            skin_color:"Black",
+            eyes_color:"Brown",
+            hobbie:"cooking",
+            fav_animal:"Cat"
+        }
+
+        fetch(API, {
+            method: "POST",
+            body: JSON.stringify(newPost),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            },
+        })
+        .then(res => res.json())
+
+        .then(data => {console.log(data)
+            const list = document.querySelector("#fill-list")
+
+            const li = document.createElement('li')
+            const h3 = document.createElement('h3')
+            const age = document.createElement('h3')
+            const skin_color = document.createElement('h3')
+            const eyes_color =document.createElement('h3')
+            const hobbie  =document.createElement('h3')
+            const fav_animal =document.createElement('h3')
+
+            list.appendChild(li)
+            li.appendChild(h3)
+            li.appendChild(age)
+            li.appendChild(skin_color)
+            li.appendChild(eyes_color)
+            li.appendChild(hobbie)
+            li.appendChild(fav_animal)
+
+            h3.innerHTML = `Nome: ${data.name}`
+            age.innerHTML = `Idade: ${data.age}`
+            skin_color.innerHTML = `Cor da Pele:${data.skin_color} `
+            eyes_color.innerHTML = `Cor dos Olhos:${data.eyes_color} `
+            hobbie.innerHTML = `Hobbie:${data.hobbie} `
+            fav_animal.innerHTML = `Animal Favorito:${data.fav_animal} `
+           })
+           .catch(err => console.error("Erro a processar os dados!"))
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino com Axios</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const post = {
+            title: 'mina mina minari',
+            body: 'Mina main dancer a queen do Japão',
+            userId : 1
+        }
+        function mostrarDados() {
+            axios
+                .post('https://jsonplaceholder.typicode.com/posts', post)
+                .then(response => {
+                    console.log("Dados adicionados com sucesso!", response.data)
+                })
+                .catch(err => {
+                    console.log("Erro a adicionar os dados", err)
+                })
+        }
+
+        mostrarDados()
+    </script>
+</body>
+</html>

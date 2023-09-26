@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de delete com Axios</title>
+</head>
+<body>
+    <h2>Delet</h2>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const idForDelete = 2;
+
+        axios 
+            .delete(`https://jsonplaceholder.typicode.com/users/${idForDelete}`)
+            .then(response => {
+                const res = response.data;
+                console.log("Dados excluidos com sucesso!", res)
+            })
+            .catch(err => console.error("Erro a deletar os dados", err))
+    </script>
+</body>
+</html>

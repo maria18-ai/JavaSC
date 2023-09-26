@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Treino de PUT com AXIOS</title>
+</head>
+<body>
+    <h2>Vamos atualizar os dados de uma api.</h2>
+    <form id="form">
+       Digite o Title do seu formulario <input type="text"
+        placeholder="Título"
+        id="userTitle">
+
+        Digite o Body do seu formulario <input type="text"
+        placeholder="Body"
+        id="userBody">
+
+        <input type="button" 
+        value="Enviar"
+        id="sendButton"
+        onclick="updateDatas()">
+    </form>
+
+    <div id="sucessOrNot">
+    </div>
+
+    <div id="userForm">
+    </div>
+
+    <div id="userCode">
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        function updateDatas() {
+            const userTitle = document.getElementById("userTitle").value;
+            const userBody = document.getElementById("userBody").value;
+
+            const userForm = {
+            title: userTitle,
+            body: userBody,
+            id: 1
+            }
+
+            axios
+                .put('https://jsonplaceholder.typicode.com/posts/1', userForm)
+                .then(response => {
+                    const res = response.data
+                    console.log("Dados adicionados com sucesso!", res)
+
+                    var containerUserSucessOrNot = document.getElementById("sucessOrNot").innerHTML = `Dados atualizados com sucesso!`
+
+                    var containerUserForm = document.getElementById("userForm").innerHTML = `Infelizmente isso é apenas um teste e não temos a api atualizada &#128542 <br>
+                    Porém temos uma representação dos seus dados em nossa API de teste:`
+
+                    var containerUserCode = document.getElementById("userCode").innerHTML = `<code>${JSON.stringify(res, null, 2)}</code>`
+                })
+
+                .catch(err => console.error("Erro a atualizar os dados.", err))
+        }
+
+    </script>
+</body>
+</html>

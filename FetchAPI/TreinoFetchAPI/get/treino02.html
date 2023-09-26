@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>API`S</h1>
+        <ul id="fill-list"></ul>
+    </main>
+
+    <script>
+        const API =  "https://swapi.dev/api/people/7";
+
+        fetch(API)
+        .then(res => {
+            res.json()
+            .then(data => { (console.log(data))
+
+                const list = document.querySelector("#fill-list");
+                const il = document.createElement('li');
+                const h3  = document.createElement('h3');
+                const heighP = document.createElement('p')
+                const eyeColorP = document.createElement('p')
+
+                list.appendChild(il)
+                il.appendChild(h3)
+                il.appendChild(heighP)
+                il.appendChild(eyeColorP)
+                h3.innerHTML = `Name: ${data.name}`
+                heighP.innerHTML = `Height: ${data.height}`
+                eyeColorP.innerHTML = `Hair: ${data.hair_color}`
+            })
+        })
+        .catch(err => {
+            console.error("ERRO! Não foi possivel acessar aos dados.")
+        })
+
+    </script>
+</body>
+</html>

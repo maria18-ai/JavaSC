@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pr-be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>treino</h1>
+    <script>
+        const api= 'https://jsonplaceholder.typicode.com/todos/3'
+        const updateTitleAndStatus = {
+            title: "Tarefa modificada",
+            completed: true
+        }
+
+        fetch(api, {
+            method:"PUT",
+            headers: {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(updateTitleAndStatus)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error("Erro a atualizar os dados:", error))
+    </script>
+</body>
+</html>

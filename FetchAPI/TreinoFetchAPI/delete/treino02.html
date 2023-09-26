@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        const api = 'https://jsonplaceholder.typicode.com/todos/5'
+         fetch(api, {
+            method: "DELETE"
+         })
+         .then(res => console.log("TODO removido com sucesso!"))
+         .catch(err => console.error("ERRO"))
+     </script>
+</body>
+</html>

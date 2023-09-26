@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>treino</h1>
+    <script>
+        const url = 'https://jsonplaceholder.typicode.com/todos/5'
+        const statusUpdate = {
+            completed: true
+        }
+
+        fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify(statusUpdate),
+            headers: {
+                'content-type':'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log("ERRO a atualizar os dados:",Error))
+    </script>
+</body>
+</html>

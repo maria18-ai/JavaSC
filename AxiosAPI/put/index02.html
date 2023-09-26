@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        function updateName() {
+            const newDatas = {
+                name: "Maria Eduarda Teodoro Fernandes",
+                username: "Dudao",
+                email: "maduteodoro4@gmail.com"
+            };
+
+            axios
+                .get(`https://jsonplaceholder.typicode.com/users/1`, newDatas)
+                .then(response => {
+                    const res = response.data
+                    console.log("Dados atualizados com sucesso!", newDatas)
+                })
+                .catch(err => {
+                    console.error("Erro a atualizar os dados", err)
+                })
+        };
+
+        updateName()
+    </script>
+</body>
+</html>

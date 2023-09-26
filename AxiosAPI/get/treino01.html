@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treino axios</title>
+</head>
+<body>
+    <main>
+        <button onclick="showTheTitles()">Mostrar Title</button>
+        <div>
+            <p id="container">
+            </p>
+        </div>
+    </main>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>
+<script>
+
+    function showTheTitles() {
+        axios
+        .get(`https://jsonplaceholder.typicode.com/posts/1`)
+        .then(res => {
+            const response = res.data;
+            console.log(response)
+
+            const container = document.getElementById("container");
+            container.textContent = response.title
+        })
+    }
+
+</script>

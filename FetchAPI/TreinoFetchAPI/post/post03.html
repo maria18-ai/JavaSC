@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Treino de POST</h1>
+
+    <script>
+       /* const URL = "https://jsonplaceholder.typicode.com/posts";
+        const newPost = {
+            title: "Jorge Ben é muito foda!",
+            body: "O cara é simplismente o melhor sambista, mpb, bosa nova que seja ele é apenas o melhor o cara é PIKA PORRA"
+        }
+
+        fetch(URL, {
+            method: "POST",
+            body: JSON.stringify(newPost),
+            headers: {
+                "Content-Type" : "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error("Erro a aplicar os dados.", err))
+        -----------------------------------------------------------------------------*/
+
+        /*const API = ";
+        const newComment = {
+            name: "Sharon Mina",
+            email: "minari123@exemple.com",
+            body: "Este é um novo comentario adicionado",
+            postId: 1
+        };
+
+        fetch(API, {
+            method: "POST",
+            body: JSON.stringify(newComment),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error("Erro ao adicionar o comentario"))
+        ----------------------------------------------------------------------*/
+
+        /*const API = "https://jsonplaceholder.typicode.com/posts";
+        const newUser = {
+            name: "Jorge Ben",
+            username: "JorginhoComedor",
+            email: "jorgebenben4@gmail.com"
+        }
+        fetch(API , {
+            method: "POST",
+            body: JSON.stringify(newUser),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error("erro ao adicionar os dados"))
+        ------------------------------------------------------------------------*/
+
+        const URL = "https://jsonplaceholder.typicode.com/todos";
+        const userExistId = 23;
+
+        const newTask = {
+            title: "Expalhar desinformação no twitter.",
+            completed: true,
+            userId: userExistId
+        };
+
+        fetch(URL, {
+            method: "POST",
+            body: JSON.stringify(newTask),
+            headers: {
+                "Content-type" : "application/json; charset=UTF-8"
+            }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error("Erro! não foi possivel adicionar as tarefas desejadas", err))
+    </script>
+</body>
+</html>

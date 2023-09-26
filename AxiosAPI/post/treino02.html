@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        const novosDados = {
+            name: "Joao",
+            username: "Joaozinho",
+            email: "jaojao@april.biz"
+        }
+        function post() {
+            axios
+                .post('https://jsonplaceholder.typicode.com/users/1', novosDados)
+                .then(res => {
+                    const response = res.data 
+
+                    console.log("Dados postados!", response)
+                })
+                .catch(error => {
+                    console.log("Erro a postar os dados", error)
+                })
+        }
+
+        post()
+    </script>
+</body>
+</html>

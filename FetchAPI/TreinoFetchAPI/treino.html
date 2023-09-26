@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino</title>
+</head>
+<body>
+   <h2>Lista StarsWars</h2>
+   <button onclick="showsData()">Clique para preencher a lista</button>
+   <ul id="fill-list">
+   </ul>
+
+   <script>
+    const urlSW = 'https://jsonplaceholder.typicode.com/todos/'
+
+    function showsData() {
+        fetch(urlSW)
+        .then(res => res.json())
+        .then(data => {
+            const list = document.querySelector("#fill-list")
+
+            data.map((item) => {
+                const li = document.createElement('li');
+
+                li.setAttribute('id', item.id)
+
+                li.innerHTML = item.title;
+
+                list.appendChild(li)
+            })
+        })
+    }
+   </script>
+</body>
+</html>

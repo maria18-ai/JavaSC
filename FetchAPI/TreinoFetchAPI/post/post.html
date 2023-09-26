@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const API = "https://jsonplaceholder.typicode.com/posts"; //guardando a api em uma variavel
+
+        const newPost = {
+            title: "Título do Novo Post",
+            body: "Conteúdo do Novo Post",
+            userId: 1,
+        }; // criando a variavel "newPost" como um objeto, nos objetos coloco os dados desejados
+
+        fetch(API, {
+            method: "POST", // usando o fetch com o metodo declado "post"
+            body:JSON.stringify(newPost), //transformando o body em um json e declando a variavel newPost no paramentro de stringify
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            }, //no header se faz as configurações de texto 
+        })
+        .then(response => response.json())
+        .then(data => console.log(data)); 
+    </script>
+</body>
+</html>

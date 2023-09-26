@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        function showThePost(userId) {
+            axios
+                .get(`https://jsonplaceholder.typicode.com/posts/${userId}`)
+                .then(response => {
+                    const res = response.data
+                    
+                    console.log(`Titulo: ${res.title} Corpo:${res.body}`)
+                })
+                .catch(err => {
+                    console.log('Erro a mostrar os dados requisitados!')
+                })
+        }
+
+       showThePost(5)
+    </script>
+</body>
+</html>

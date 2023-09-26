@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios 02</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h2>
+                Lista de Usuarios da JsonPlaceHolder
+            </h2>
+        </div>
+
+        <div>
+            <ul id="list">
+            </ul>
+        </div>
+    </main>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>
+
+<script>
+    function nickUsers() {
+        axios
+            .get('https://jsonplaceholder.typicode.com/users')
+            .then(res => {
+                const respo = res.data
+                console.log(respo)
+
+                const lista = document.getElementById("list");
+                
+                respo.forEach(respo => {
+                    const li = document.createElement("li");
+
+                    li.innerHTML = JSON.stringify(respo.name)
+                    lista.appendChild(li)
+                });
+            })
+    }
+    nickUsers()
+</script>

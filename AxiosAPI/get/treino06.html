@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de Axios</title>
+    <script src="script06.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h2>
+            Pegando dados pelo ID
+        </h2>
+    </main>
+
+    <div>
+        <input type="text"
+        placeholder="Digite o ID desejado"
+        id="idUser">
+
+        <button onclick="showUsers()">
+            Buscar dados digitados.
+        </button>
+    </div>
+
+    <div>
+        <ul id="fillList">
+
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        /* function primeiraFunçao() {
+             return new Promise((resolve) => {
+                 setTimeout(() => {
+                     console.log('Esperou isso aqui')
+                     resolve()
+                 }, 1000);
+             })
+         }
+ 
+         async function segundaFunçao() {
+             console.log('Iniciou')
+ 
+             await primeiraFunçao()
+ 
+             console.log('Terminou')
+         }
+ 
+         segundaFunçao() */
+ 
+         // aplicação real 
+ 
+         function getUserName() {
+            axios 
+                .get('https://jsonplaceholder.typicode.com/users/1')
+                .then(res => {
+                    const response = res.data
+                    console.log(response.name)
+                })
+                .catch(err => console.error('Erro a solicitar os dados'))
+         }
+
+         async function showTheUserName() {
+            const name = await getUserName()
+
+            console.log(`O nome do usuario é: ${name}`)
+         }
+         showTheUserName()
+     </script>
+</body>
+</html>

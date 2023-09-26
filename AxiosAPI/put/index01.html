@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        function updateData() {
+            const update = {
+                title: "Novo título",
+                body: "Novo corpo do formulario"
+            };
+
+            axios
+                .put(`https://jsonplaceholder.typicode.com/posts/1`, update)
+                .then(response => {
+                    const res = response.data;
+                    console.log("Dados atualizados com sucesso!", res)
+                })
+                .catch(err => {
+                    console.error("Erro a atualizar os dados!")
+                });
+        };
+        updateData()
+    </script>
+</body>
+</html>
